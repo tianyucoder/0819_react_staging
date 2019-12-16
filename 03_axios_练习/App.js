@@ -12,22 +12,15 @@ class App extends React.Component{
 	}
 
 	componentDidMount(){
-		fetch(`https://api.github.com/search/repositories?q=${this.state.keyWord}&sort=stars`)
+		axios.get(`https://api.github.com/search/repositories?q=${this.state.keyWord}&sort=stars`)
 		.then(
 			value => {
-				return value.json()
-			},
-		)
-		.then(
-			value =>{
 				this.setState({
 					isLoading:false,
-					repoName:value.items[0].name,
-					repoUrl:value.items[0].html_url,
+					repoName:value.data.items[0].name,
+					repoUrl:value.data.items[0].html_url,
 				})
-			}
-		)
-		.catch(
+			},
 			error => {
 				this.setState({
 					isLoading:false,
