@@ -4,9 +4,11 @@ import './item.css'
 export default class Item extends Component {
 
 	delete = (id)=>{
-		//1.获取评论的id
-		//2.去App的状态中找这个id对应的评论，然后删掉
-		console.log('删除了',id);
+		if(window.confirm('确定删除吗')){
+			//1.获取评论的id
+			//2.去App的状态中找这个id对应的评论，然后删掉
+			this.props.deleteComment(id)
+		}
 	}
 
 	render() {

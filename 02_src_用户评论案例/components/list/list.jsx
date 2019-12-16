@@ -8,7 +8,7 @@ export default class List extends Component {
 		comments:PropTypes.array.isRequired
 	}
 	render() {
-		const {comments} = this.props
+		const {comments,deleteComment} = this.props
 		return (
 			<div className="col-md-8">
 				<h3 className="reply">评论回复：</h3>
@@ -16,7 +16,7 @@ export default class List extends Component {
 				<ul className="list-group">
 					{
 						comments.map((comment)=>{
-							return <Item key={comment.id} {...comment}/>
+							return <Item key={comment.id} {...comment} deleteComment={deleteComment}/>
 						})
 					}
 				</ul>

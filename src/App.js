@@ -1,39 +1,19 @@
 import React from 'react';
-import Add from './components/add/add.jsx'
-import List from './components/list/list'
 
 class App extends React.Component{
 
 	state = {
-		comments:[]
-	}
-
-	addComment = (commentObj)=>{
-		//1.获取原状态
-		const comments = [...this.state.comments]
-		//2.追加一个评论到comments
-		comments.unshift(commentObj)
-		//3.更新状态
-		this.setState({comments})
+		isLoading:true, //标识是否处于加载中
+		repoName:'',//仓库的名字
+		repoUrl:'',//仓库地址
+		keyWord:'r'
 	}
 
 	render(){
-		const {comments} = this.state
+		const {keyWord,repoName,repoUrl} = this.state
 		return (
 			<div>
-				<header className="site-header jumbotron">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12">
-								<h1>请发表对React的评论</h1>
-							</div>
-						</div>
-					</div>
-				</header>
-				<div className="container">
-					<Add addComment={this.addComment}/>
-					<List comments={comments}/>
-				</div>
+				<h2>在github上以【{this.state.keyWord}】字母开头的仓库中，点赞量最多的是<a href={repoUrl}>{repoName}</a></h2>
 			</div>
 		)
 	}
