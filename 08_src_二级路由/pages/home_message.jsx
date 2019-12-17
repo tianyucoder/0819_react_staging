@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Detail from './message_detail'
-import {Link,Route} from 'react-router-dom'
 
 export default class HomeMessage extends Component {
 
@@ -20,15 +18,7 @@ export default class HomeMessage extends Component {
         messages: data
       })
     }, 1000)
-	}
-	
-	pushShow = (id)=>{
-		this.props.history.push(`/home/message/detail/${id}`)
-	}
-
-	replaceShow = (id)=>{
-		this.props.history.replace(`/home/message/detail/${id}`)
-	}
+  }
 
 
 	render() {
@@ -39,16 +29,12 @@ export default class HomeMessage extends Component {
 						this.state.messages.map((message)=>{
 							return (
 								<li key={message.id}>
-									<Link to={`/home/message/detail/${message.id}`}>{message.title}</Link>&nbsp;&nbsp;
-									<button onClick={()=>{this.pushShow(message.id)}}>push查看</button>
-									<button onClick={()=>{this.replaceShow(message.id)}}>replace查看</button>
+									<a href="/home/message/1">{message.title}</a>&nbsp;&nbsp;
 								</li>
 							)
 						})
 					}
 				</ul>
-				<hr/>
-				<Route path="/home/message/detail/:id" component={Detail} />
 				<hr/>
 			</div>
 		)
