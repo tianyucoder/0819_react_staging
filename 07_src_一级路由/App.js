@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './pages/home'
 import About from './pages/about'
-import Demo from './components/demo'
+//import Demo from './pages/demo'
 import {Route,NavLink,Switch,Redirect} from 'react-router-dom'
 
 class App extends React.Component{
@@ -18,8 +18,8 @@ class App extends React.Component{
 						<div className="list-group">
 							{/* <a className="list-group-item" href="./about.html">About</a>
 							<a className="list-group-item" href="./home.html">Home</a> */}
-							<NavLink className="list-group-item" to="/about" activeClassName="demo">About</NavLink>
-							<NavLink className="list-group-item" to="/home" activeClassName="demo">Home</NavLink>
+							<NavLink className="list-group-item" to="/atguigu/about" activeClassName="demo">About</NavLink>
+							<NavLink className="list-group-item" to="/atguigu/home" activeClassName="demo">Home</NavLink>
 						</div>
 					</div>
 					<div className="col-xs-6">
@@ -28,12 +28,11 @@ class App extends React.Component{
 								{/* <h3>我是Home的内容</h3>
 								<h3>我是About的内容</h3> */}
 								<Switch>
-									<Route path="/about" component={About}/>
-									<Route path="/home" component={Home}/>
+									<Route path="/atguigu/about" component={About}/>
+									<Route path="/atguigu/home" component={Home}/>
 									{/* <Route path="/" component={Demo}/> */}
-									<Redirect to="/about"></Redirect>
+									<Redirect to="/atguigu/about"></Redirect>
 								</Switch>
-								{/* <Demo name="kobe"/> */}
 							</div>
 						</div>
 					</div>
