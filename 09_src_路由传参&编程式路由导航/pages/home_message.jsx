@@ -30,6 +30,15 @@ export default class HomeMessage extends Component {
 		this.props.history.replace(`/home/message/detail/${id}`)
 	}
 
+	back = ()=>{
+		this.props.history.goBack()
+	}
+
+
+	togo = ()=>{
+		this.props.history.goForward()
+	}
+
 
 	render() {
 		return (
@@ -47,8 +56,9 @@ export default class HomeMessage extends Component {
 						})
 					}
 				</ul>
-				<hr/>
 				<Route path="/home/message/detail/:id" component={Detail} />
+				<button onClick={this.back}>回退</button>
+				<button onClick={this.togo}>前进</button>
 				<hr/>
 			</div>
 		)
