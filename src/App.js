@@ -11,14 +11,18 @@ class App extends React.Component{
 		error:''//存储请求失败的原因
 	}
 
+	updateAppState = (stateObj)=>{
+		this.setState(stateObj)
+	}
+
 	render(){
 		return (
 			<div className="container">
 				<section className="jumbotron">
 					<h3 className="jumbotron-heading">Search Github Users</h3>
-					<Search/>
+					<Search updateAppState={this.updateAppState}/>
 				</section>
-				<List/>
+				<List {...this.state}/>
 		 </div>
 		)
 	}
